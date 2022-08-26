@@ -1,0 +1,50 @@
+﻿@model PrimerProyecto.TIPO_PRESENTACION
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TIPO_PRESENTACION</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre_Presentacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre_Presentacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Personas_Evento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Personas_Evento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GRUPO_ARTISTA.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GRUPO_ARTISTA.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Presentacion }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

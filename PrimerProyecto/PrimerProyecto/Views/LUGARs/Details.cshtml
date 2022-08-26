@@ -1,0 +1,42 @@
+﻿@model PrimerProyecto.LUGAR
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LUGAR</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Dirección)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dirección)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom_Lugar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nom_Lugar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DISTRITO.Nom_Distrito)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DISTRITO.Nom_Distrito)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_lugar }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

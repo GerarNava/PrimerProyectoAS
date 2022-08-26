@@ -1,0 +1,82 @@
+﻿@model PrimerProyecto.EVENTO
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EVENTO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tipo_evento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tipo_evento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaEvento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaEvento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoraRealización)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoraRealización)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comentarios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comentarios)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ENCARGADO.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ENCARGADO.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TIPO_PRESENTACION.Nombre_Presentacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TIPO_PRESENTACION.Nombre_Presentacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRECIOS_EVENTOS.Id_Precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRECIOS_EVENTOS.Id_Precio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LUGAR.Dirección)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LUGAR.Dirección)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Evento }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

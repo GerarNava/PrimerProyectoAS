@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1aa7ce338bf2422f9c4d00d983f43123" Name="Diagram1">
+        <EntityTypeShape EntityType="DBEventosModel.DISTRITO" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEventosModel.ENCARGADO" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEventosModel.EVENTO" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEventosModel.GRUPO_ARTISTA" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEventosModel.LUGAR" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEventosModel.PAIS" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEventosModel.PRECIOS_EVENTOS" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEventosModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEventosModel.TIPO_PRESENTACION" Width="1.5" PointX="5.25" PointY="9.75" IsExpanded="true" />
+        <AssociationConnector Association="DBEventosModel.Relationship6" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEventosModel.Relationship7" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEventosModel.Relationship2" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEventosModel.Relationship1" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEventosModel.Relationship3" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEventosModel.Relationship5" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEventosModel.Relationship4" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<PrimerProyecto.TIPO_PRESENTACION>
+
+@{
+    ViewBag.Title = "TIPO DE PRESENTACION";
+}
+
+<h2>TIPO DE PRESENTACION</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre_Presentacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Personas_Evento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GRUPO_ARTISTA.Nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre_Presentacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Personas_Evento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GRUPO_ARTISTA.Nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id_Presentacion }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id_Presentacion }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id_Presentacion })
+        </td>
+    </tr>
+}
+
+</table>

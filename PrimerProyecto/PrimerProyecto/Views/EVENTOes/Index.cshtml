@@ -1,0 +1,75 @@
+﻿@model IEnumerable<PrimerProyecto.EVENTO>
+
+@{
+    ViewBag.Title = "EVENTO";
+}
+
+<h2>EVENTO</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Tipo_evento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaEvento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoraRealización)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comentarios)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ENCARGADO.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TIPO_PRESENTACION.Nombre_Presentacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRECIOS_EVENTOS.Id_Precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LUGAR.Dirección)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tipo_evento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaEvento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoraRealización)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comentarios)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ENCARGADO.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TIPO_PRESENTACION.Nombre_Presentacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRECIOS_EVENTOS.Id_Precio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LUGAR.Dirección)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id_Evento }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id_Evento }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id_Evento })
+        </td>
+    </tr>
+}
+
+</table>

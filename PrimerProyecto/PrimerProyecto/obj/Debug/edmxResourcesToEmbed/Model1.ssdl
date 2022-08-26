@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBEventosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DISTRITO">
+    <Key>
+      <PropertyRef Name="Id_distrito" />
+    </Key>
+    <Property Name="Id_distrito" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom_Distrito" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Id_Pais" Type="int" />
+  </EntityType>
+  <EntityType Name="ENCARGADO">
+    <Key>
+      <PropertyRef Name="Id_Encargado" />
+    </Key>
+    <Property Name="Id_Encargado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EVENTO">
+    <Key>
+      <PropertyRef Name="Id_Evento" />
+    </Key>
+    <Property Name="Id_Evento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tipo_evento" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="FechaEvento" Type="date" Nullable="false" />
+    <Property Name="HoraRealización" Type="time" Precision="7" Nullable="false" />
+    <Property Name="Id_Arrendatario" Type="int" />
+    <Property Name="Id_Encargado" Type="int" />
+    <Property Name="Id_Precio" Type="int" />
+    <Property Name="Comentarios" Type="varchar(max)" />
+    <Property Name="Id_lugar" Type="int" />
+  </EntityType>
+  <EntityType Name="GRUPO_ARTISTA">
+    <Key>
+      <PropertyRef Name="Id_grupoArtista" />
+    </Key>
+    <Property Name="Id_grupoArtista" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Nacionalidad" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="COMENTARIOS" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="LUGAR">
+    <Key>
+      <PropertyRef Name="Id_lugar" />
+    </Key>
+    <Property Name="Id_lugar" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Dirección" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Nom_Lugar" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Id_distrito" Type="int" />
+  </EntityType>
+  <EntityType Name="PAIS">
+    <Key>
+      <PropertyRef Name="Id_Pais" />
+    </Key>
+    <Property Name="Id_Pais" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NomPais" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PRECIOS_EVENTOS">
+    <Key>
+      <PropertyRef Name="Id_Precio" />
+    </Key>
+    <Property Name="Id_Precio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="precioEvento" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TIPO_PRESENTACION">
+    <Key>
+      <PropertyRef Name="Id_Presentacion" />
+    </Key>
+    <Property Name="Id_Presentacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre_Presentacion" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Telefono" Type="int" Nullable="false" />
+    <Property Name="Personas_Evento" Type="int" Nullable="false" />
+    <Property Name="Id_grupoArtista" Type="int" />
+  </EntityType>
+  <Association Name="Relationship1">
+    <End Role="TIPO_PRESENTACION" Type="Self.TIPO_PRESENTACION" Multiplicity="0..1" />
+    <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_PRESENTACION">
+        <PropertyRef Name="Id_Presentacion" />
+      </Principal>
+      <Dependent Role="EVENTO">
+        <PropertyRef Name="Id_Arrendatario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship2">
+    <End Role="ENCARGADO" Type="Self.ENCARGADO" Multiplicity="0..1" />
+    <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ENCARGADO">
+        <PropertyRef Name="Id_Encargado" />
+      </Principal>
+      <Dependent Role="EVENTO">
+        <PropertyRef Name="Id_Encargado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship3">
+    <End Role="PRECIOS_EVENTOS" Type="Self.PRECIOS_EVENTOS" Multiplicity="0..1" />
+    <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRECIOS_EVENTOS">
+        <PropertyRef Name="Id_Precio" />
+      </Principal>
+      <Dependent Role="EVENTO">
+        <PropertyRef Name="Id_Precio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship4">
+    <End Role="GRUPO_ARTISTA" Type="Self.GRUPO_ARTISTA" Multiplicity="0..1" />
+    <End Role="TIPO_PRESENTACION" Type="Self.TIPO_PRESENTACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GRUPO_ARTISTA">
+        <PropertyRef Name="Id_grupoArtista" />
+      </Principal>
+      <Dependent Role="TIPO_PRESENTACION">
+        <PropertyRef Name="Id_grupoArtista" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship5">
+    <End Role="LUGAR" Type="Self.LUGAR" Multiplicity="0..1" />
+    <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LUGAR">
+        <PropertyRef Name="Id_lugar" />
+      </Principal>
+      <Dependent Role="EVENTO">
+        <PropertyRef Name="Id_lugar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship6">
+    <End Role="PAIS" Type="Self.PAIS" Multiplicity="0..1" />
+    <End Role="DISTRITO" Type="Self.DISTRITO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAIS">
+        <PropertyRef Name="Id_Pais" />
+      </Principal>
+      <Dependent Role="DISTRITO">
+        <PropertyRef Name="Id_Pais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship7">
+    <End Role="DISTRITO" Type="Self.DISTRITO" Multiplicity="0..1" />
+    <End Role="LUGAR" Type="Self.LUGAR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DISTRITO">
+        <PropertyRef Name="Id_distrito" />
+      </Principal>
+      <Dependent Role="LUGAR">
+        <PropertyRef Name="Id_distrito" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBEventosModelStoreContainer">
+    <EntitySet Name="DISTRITO" EntityType="Self.DISTRITO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ENCARGADO" EntityType="Self.ENCARGADO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EVENTO" EntityType="Self.EVENTO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GRUPO_ARTISTA" EntityType="Self.GRUPO_ARTISTA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LUGAR" EntityType="Self.LUGAR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PAIS" EntityType="Self.PAIS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRECIOS_EVENTOS" EntityType="Self.PRECIOS_EVENTOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TIPO_PRESENTACION" EntityType="Self.TIPO_PRESENTACION" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="Relationship1" Association="Self.Relationship1">
+      <End Role="TIPO_PRESENTACION" EntitySet="TIPO_PRESENTACION" />
+      <End Role="EVENTO" EntitySet="EVENTO" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship2" Association="Self.Relationship2">
+      <End Role="ENCARGADO" EntitySet="ENCARGADO" />
+      <End Role="EVENTO" EntitySet="EVENTO" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship3" Association="Self.Relationship3">
+      <End Role="PRECIOS_EVENTOS" EntitySet="PRECIOS_EVENTOS" />
+      <End Role="EVENTO" EntitySet="EVENTO" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship4" Association="Self.Relationship4">
+      <End Role="GRUPO_ARTISTA" EntitySet="GRUPO_ARTISTA" />
+      <End Role="TIPO_PRESENTACION" EntitySet="TIPO_PRESENTACION" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship5" Association="Self.Relationship5">
+      <End Role="LUGAR" EntitySet="LUGAR" />
+      <End Role="EVENTO" EntitySet="EVENTO" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship6" Association="Self.Relationship6">
+      <End Role="PAIS" EntitySet="PAIS" />
+      <End Role="DISTRITO" EntitySet="DISTRITO" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship7" Association="Self.Relationship7">
+      <End Role="DISTRITO" EntitySet="DISTRITO" />
+      <End Role="LUGAR" EntitySet="LUGAR" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
